@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}nouveau pokemon{% endblock %}
+
+{% block body %}
+    <h1 class="text-center mb-3 mt-3">Ajouter un pokémon !</h1>
+    <div class="d-flex">
+        <div class="d-flex justify-content-center col-6">
+            <form action="" method="POST">
+                <div class="card card-header mt-3">
+                    <label for="id">Nom du pokémon</label>
+                    <select name="id" id="id">
+                        {% for specie in species %}
+                            <option value="{{ specie.id }}" id="{{ specie.numero }}">{{ specie.numero }} - {{ specie.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="card card-header mt-3">
+                    <label for="type">Type</label>
+                    <select name="type">
+                        {% for type in types %}
+                            <option value="{{ type.id }}">{{ type.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="card card-header mt-3">
+                    <label for="name">Pseudo</label>
+                    <input type="text" name="name">
+                </div>
+                <div class="card card-header mt-3">
+                    <label for="name">Date de capture</label>
+                    <input id="date" type="date" name="catchDay">
+                </div>
+                <div class="card card-header mt-3">
+                    <label for="name">Lieu de capture</label>
+                    <input type="text" name="catchPlace">
+                </div>
+                <div class="card card-header mt-3">
+                    <label for="name">Niveau</label>
+                    <input type="number" name="level" min="1" max="100" value="5">
+                </div>
+                <div class="card card-header mt-3">
+                    <label for="name">Points de vie</label>
+                    <input type="number" name="hp" min="1" max="255" value="50">
+                </div>
+                <div class="form-check form-switch mt-3">
+                    <input class="form-check-input mt-2" type="checkbox" name="shiny">
+                    <label class="form-check-label  mt-1 me-5" for="name">Shiny</label>
+                    <button type="submit" class="ms-5 btn btn-success">Ajouter</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-6">
+            <img src="{{ asset('assets/img/pokemon/bulbizarre.gif') }}" alt="" id="img">
+            <img src="{{ asset('assets/img/pokemon/bulbizarre.png') }}" alt="" id="img2">
+        </div>
+    </div>
+{% endblock %}

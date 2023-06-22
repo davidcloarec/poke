@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}nouveau pokemon{% endblock %}
+
+{% block body %}
+
+    {% for specie in species %}
+        <div hidden>
+            <p>{{ specie.numero }} - {{ specie.name }}</p>
+            <ul>
+                {% for key, type in specie.types %}
+                    <li id="{{ specie.name }}_{{ key }}" class="{{ type.color }}">
+                        {{ type.name }}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endfor %}
+
+    <h1 class="text-center mb-3 mt-3">Ajouter un pokémon !</h1>
+    <div class="d-flex">
+        <div class="d-flex col-4">
+            {{ form_start(pokemonForm) }}
+            <div class="d-flex flex-wrap">
+                <div class="card card-footer col-10 border-2 border border-light" id="pokemon_card">
+                    {{ form_label(pokemonForm.specie) }}
+                    {{ form_widget(pokemonForm.specie) }}
+                    {{ form_errors(pokemonForm.specie) }}
+                    <div class="mt-3">
+                        <p id="type1" class="card card-header col-12 border-2 border border-light">Plante</p>
+                        <p id="type2" class="card card-footer border-2 border border-light">Poison</p>
+                    </div>
+                </div>
+                <div class="card card-header bg-warning col-10 mt-4 border-2 border border-light">
+                    {{ form_label(pokemonForm.name) }}
+                    {{ form_widget(pokemonForm.name) }}
+                    {{ form_errors(pokemonForm.name) }}
+                </div>
+                <div class="card card-header mt-4 bg-warning col-10 border-2 border border-light">
+                    {{ form_label(pokemonForm.catchDay) }}
+                    {{ form_widget(pokemonForm.catchDay) }}
+                    {{ form_errors(pokemonForm.catchDay) }}
+                    {{ form_label(pokemonForm.catchPlace) }}
+                    {{ form_widget(pokemonForm.catchPlace) }}
+                    {{ form_errors(pokemonForm.catchPlace) }}
+                </div>
+
+                <div class="card card-header mt-4 bg-warning border-2 border border-light col-4">
+                    {{ form_label(pokemonForm.level) }}
+                    {{ form_widget(pokemonForm.level) }}
+                    {{ form_errors(pokemonForm.level) }}
+                    {{ form_label(pokemonForm.hp) }}
+                    {{ form_widget(pokemonForm.hp) }}
+                    {{ form_errors(pokemonForm.hp) }}
+                </div>
+                <div class="card card-header mt-4 bg-warning border-2 border border-light offset-1">
+                    {{ form_label(pokemonForm.attacks) }}
+                    {{ form_widget(pokemonForm.attacks) }}
+                    {{ form_errors(pokemonForm.attacks) }}
+                </div>
+                <div class="form-check form-switch mt-4 offset-1">
+                    {{ form_label(pokemonForm.shiny) }}
+                    {{ form_widget(pokemonForm.shiny) }}
+                    {{ form_errors(pokemonForm.shiny) }}
+                    <button type="submit" class="ms-5 btn btn-success">Ajouter</button>
+                </div>
+            </div>
+
+            {{ form_end(pokemonForm) }}
+        </div>
+        <div class="col-8">
+            <img src="{{ asset('assets/img/pokemon/bulbizarre.gif') }}" alt="" id="img">
+            <img src="{{ asset('assets/img/pokemon/bulbizarre.png') }}" alt="" id="img2">
+        </div>
+    </div>
+
+
+{% endblock %}

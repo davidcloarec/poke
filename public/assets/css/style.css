@@ -1,0 +1,53 @@
+.logo {
+    width: 40px;
+}
+
+.pikachu {
+    border-radius: 25px;
+    border: 1px solid #146c43;
+}
+
+body {
+    background-color: paleturquoise;
+}
+
+#img {
+    position: fixed;
+    height: 10%;
+}
+
+#img2 {
+    margin-left: 10%;
+    height: 90%;
+}
+
+#type1 {
+    background-color: #78C850;
+}
+
+#type2 {
+    background-color: #A040A0;
+}
+
+#pokemon_card {
+    background: linear-gradient(135deg, #78C850, #A040A0);
+}
+
+.cardDisplay{
+    width: 20vw;
+    border: 5px solid #93c5fd;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 25px;
+}
+
+.content{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.attack{
+    background-color: ivory;
+    width: 45%;
+}
