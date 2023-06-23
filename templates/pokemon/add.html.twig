@@ -36,13 +36,20 @@
                     {{ form_widget(pokemonForm.name) }}
                     {{ form_errors(pokemonForm.name) }}
                 </div>
-                <div class="card card-header mt-4 bg-warning col-10 border-2 border border-light">
-                    {{ form_label(pokemonForm.catchDay) }}
-                    {{ form_widget(pokemonForm.catchDay) }}
-                    {{ form_errors(pokemonForm.catchDay) }}
-                    {{ form_label(pokemonForm.catchPlace) }}
-                    {{ form_widget(pokemonForm.catchPlace) }}
-                    {{ form_errors(pokemonForm.catchPlace) }}
+                <div class="card card-header mt-4 bg-warning col-10 border-2 border border-light d-flex flex-row flex-wrap">
+                    <div class="col-9">
+                        {{ form_label(pokemonForm.catchDay) }}
+                        {{ form_widget(pokemonForm.catchDay) }}
+                        {{ form_errors(pokemonForm.catchDay) }}
+                    </div>
+                    <div class="col-3">
+                        <img src="{{ asset('assets/img/pokemon/bulbizarre.gif') }}" alt="" id="img">
+                    </div>
+                    <div class="col-8">
+                        {{ form_label(pokemonForm.catchPlace) }}
+                        {{ form_widget(pokemonForm.catchPlace) }}
+                        {{ form_errors(pokemonForm.catchPlace) }}
+                    </div>
                 </div>
 
                 <div class="card card-header mt-4 bg-warning border-2 border border-light col-4">
@@ -69,7 +76,7 @@
             {{ form_end(pokemonForm) }}
         </div>
         <div class="col-8">
-            <img src="{{ asset('assets/img/pokemon/bulbizarre.gif') }}" alt="" id="img">
+
             <img src="{{ asset('assets/img/pokemon/bulbizarre.png') }}" alt="" id="img2">
         </div>
     </div>

@@ -4,9 +4,9 @@
 
 {% block body %}
     <h1 class="text-center mb-3 mt-3">Liste des pokemons</h1>
-    <div class="content">
+    <div class="content mb-5">
         {% for pokemon in pokemons %}
-            <div class="cardDisplay"
+            <div class="cardDisplay {{ pokemon.shiny?'shiny':'' }}"
                  style="background:
                  linear-gradient(135deg, {{ pokemon.specie.types[0].color }},
                          {% if pokemon.specie.types[1] is defined %}
@@ -51,7 +51,7 @@
                 <div class="mt-4 d-flex flex-column">
                     <div class="d-flex justify-content-around flex-wrap">
                         {% for key, attack in pokemon.attacks %}
-                            <p class="card card-footer attack col-6 border border-warning border-4"
+                            <p class="card card-body attack col-6 border border-warning border-4 cardAttack m-2 p-2"
                                style="background-color: {{ attack.type.color }}; box-shadow: 5px 5px 5px #bb2d3b">
                                 {{ attack.name }}
                             </p>

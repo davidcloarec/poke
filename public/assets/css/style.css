@@ -12,13 +12,12 @@ body {
 }
 
 #img {
-    position: fixed;
-    height: 10%;
+    margin-top: 10px;
+    height: 8vh;
 }
 
 #img2 {
     margin-left: 10%;
-    height: 90%;
 }
 
 #type1 {
@@ -35,8 +34,9 @@ body {
 
 .cardDisplay{
     width: 20vw;
+    height: auto;
     border: 5px solid #93c5fd;
-    margin: 10px;
+    margin: 20px;
     padding: 10px;
     border-radius: 25px;
 }
