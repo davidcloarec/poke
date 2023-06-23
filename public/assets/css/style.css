@@ -39,6 +39,7 @@ body {
     margin: 20px;
     padding: 10px;
     border-radius: 25px;
+    transform-style: preserve-3d;
 }
 
 .content{

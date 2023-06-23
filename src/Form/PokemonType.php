@@ -5,10 +5,12 @@ namespace App\Form;
 use App\Entity\Attack;
 use App\Entity\Pokemon;
 use App\Entity\Specie;
+use phpDocumentor\Reflection\DocBlock\Tags\Formatter;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -16,7 +18,6 @@ class PokemonType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-
         $builder
             ->add('specie',null,[
                 'class' => Specie::class,
@@ -31,10 +32,13 @@ class PokemonType extends AbstractType
                     'placeholder'=>'bulbipuce...'
                 ]
             ])
-            ->add('catchDay', null, [
+            ->add('catchDay', DateType::class, [
                 'label'=>'Date de capture',
-                'attr'=>[
-                    'class'=>'me-5'
+                'format' => 'dd / MM / yyyy',
+                'placeholder'=> [
+                    'year' => (new \DateTime())->format('Y'),
+                    'month' => (new \DateTime())->format('m'),
+                    'day' => (new \DateTime())->format('d')
                 ]
             ])
             ->add('catchPlace', null, [
