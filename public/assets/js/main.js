@@ -24,8 +24,10 @@ function cardHoverIn(event){
     target.style.zIndex = 10;
 
     target.addEventListener('mousemove', function (e) {
-        let xAxis = (window.innerWidth / 2 - e.pageX) / 50;
-        let yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+        let xAxis = (window.innerWidth / 2 - e.pageX
+            + getOffset(target).left) / 100 -15;
+        let yAxis = (window.innerHeight / 2 - e.pageY
+            + getOffset(target).top) / 50;
         target.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
     });
 }
@@ -50,3 +52,10 @@ function attackHoverOut(event){
     target.style.scale = '100%'
 }
 
+function getOffset(el) {
+    const rect = el.getBoundingClientRect();
+    return {
+        left: rect.left + window.scrollX,
+        top: rect.top + window.scrollY
+    };
+}
